@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { DatabaseService } from '../database/database.service';
+import { EpoxtProduct } from '@prisma/client';
 
 @Injectable()
 export class EpoxyProductService {
@@ -9,7 +10,7 @@ export class EpoxyProductService {
     return 'All products';
   }
 
-  async create() {
+  async create(): Promise<any> {
     try {
       const result = await this.db.epoxtProduct.create({
         data: {
@@ -28,7 +29,7 @@ export class EpoxyProductService {
       return result;
     } catch (error) {
       return {
-        error,
+        error: error.toString(),
         message: 'Something went wrong',
       };
     }

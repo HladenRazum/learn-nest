@@ -30,3 +30,11 @@ enum ProductType {
   TABLE
   BOARD
 }
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  firstname String?
+  lastname  String?
+}

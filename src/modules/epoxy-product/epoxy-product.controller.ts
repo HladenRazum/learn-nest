@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { EpoxyProductService } from './epoxy-product.service';
 
 @Controller('products')
@@ -7,6 +7,11 @@ export class EpoxyProductController {
 
   @Get()
   async findAll() {
-    return this.service.findAll();
+    return await this.service.findAll();
+  }
+
+  @Post()
+  async createProduct() {
+    return await this.service.create();
   }
 }
