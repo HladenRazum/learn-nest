@@ -15,6 +15,18 @@ datasource db {
 
 model Post {
   id      Int     @id @default(autoincrement())
-  title   String
+  title   String  @unique
   content String?
+}
+
+model EpoxtProduct {
+  id          Int         @id @default(autoincrement())
+  name        String      @unique
+  type        ProductType
+  isAvailable Boolean     @default(true)
+}
+
+enum ProductType {
+  TABLE
+  BOARD
 }
