@@ -31,7 +31,7 @@ import * as path from 'path';
       ],
       typesOutputPath: path.join(
         __dirname,
-        '../src/generated/i18n.generated.ts',
+        '../../../src/generated/i18n.generated.ts',
       ),
     }),
     UserModule,
